@@ -109,7 +109,7 @@ public class WatchDir {
     /**
      * Process all events for keys queued to the watcher
      */
-    void processEvents() {
+    void processEvents(Closure callBack) {
         for (; ;) {
 
             // wait for key to be signalled
@@ -139,8 +139,8 @@ public class WatchDir {
                 Path name = ev.context();
                 Path child = dir.resolve(name);
 
-                // print out event
-                System.out.format("%s: %s\n", event.kind().name(), child);
+                //call callback closure
+                callBack.call(child, event.kind().name())
 
                 // if directory is created, and watching recursively, then
                 // register it and its sub-directories
