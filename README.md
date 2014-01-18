@@ -13,7 +13,7 @@
 ./gradlew IDEA
 
 
-[Similar project] (Nodejs version)
+[Similar project]  with nodejs 
 
 
 [Similar project]: https://github.com/v0lkan/enchantress
